@@ -58,10 +58,14 @@
 		var closeNewTaskPanel = function(){
 			$('.add-task-btn').toggleClass('hide');
 			$('.new-task-wrapper').toggleClass('visible');
+			if($('#new-task').hasClass('error')){
+				$('#new-task').removeClass('error');
+				$('.new-task-wrapper .error-message').addClass('hidden');
+			}
 		}
 
 		// Initalizes HTML template for a given task 
-		var taskTemplate = $('#todo-list .task').first().clone();
+		var taskTemplate = $($('#task-template').html());
 
 		// Shows panel for entering new tasks
 		$('.add-task-btn').click(function(){
