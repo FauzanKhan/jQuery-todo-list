@@ -86,6 +86,7 @@
 					font-weight: $font-normal;
 					vertical-align: middle;
 					color: $base-fg;
+					word-break: break-all;
 				}
 				.task-action-btn{
 					display: table-cell;
@@ -121,6 +122,12 @@
 						color: $light-gray-fg;
 					}		
 				}	
+			}
+			&.new{
+				.task-container{
+					-webkit-animation: taskHighlighter 2000ms linear 1;
+   					animation: taskHighlighter 2000ms linear 1;
+				}
 			}
 		}
 	}
@@ -166,8 +173,17 @@
 				margin-bottom: 20px;
 				@include transition;
 				&:focus{
-					outline: 1px solid darken($border-color, 5%);
+					border: 1px solid darken($border-color, 5%);
+					outline: none;
 				}
+				&.error{
+					border: 1px solid $danger-color;
+					outline: none;
+				}
+			}
+			.error-message{
+				color: $danger-color;
+				font-style: italic;
 			}
 			.btn{
 				padding: 10px 15px;
@@ -185,6 +201,47 @@
 		}
 	}
 }
+
+.notification-popup{
+	position: fixed;
+	top: 20px;
+	right: 10px;
+	width: 300px;
+	display: inline-block;
+	background: $info-color;
+	border: 1px solid darken($info-color, 5%);
+	color: $white;
+	padding: 20px;
+	opacity: .8;
+	border-radius: 2px;
+	box-sizing: border-box;
+	@include transition;
+	&.success{
+		background: $success-color;
+		border: 1px solid darken($success-color, 5%);
+	}
+	p{
+		margin-top: 0;
+		margin-bottom: 0px;
+	}
+	.task{
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		max-width: 100%;
+		display: inline-block;
+	}
+	.notification-text{
+		font-size: 14px;
+		display: inline-block;
+		overflow: hidden;
+	}
+	&.hide{
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+
 
 /*=====================================
 =            Media Queries            =
@@ -206,7 +263,7 @@
 		}
 		#todo-list{
 			border-bottom: none;
-			li{
+			li.task{
 				@include clearfix;
 				&.completed{
 					.task-container{
@@ -260,6 +317,9 @@
 			}
 		}
 	}
+	.notification-popup{
+		right: 30px;
+	}
 }
 
 @media all and (min-width: 540px){
@@ -278,3 +338,33 @@
 }
 
 /*=====  End of Media Queries  ======*/
+
+/*========================================
+=            CSS 3 Animations            =
+========================================*/
+
+@-webkit-keyframes taskHighlighter {
+	// 0% {
+	// 	background: $white;
+	// }
+	0% {
+		background: $highlight-color;
+	}
+	100% {
+		background: $white;
+	}
+}
+@keyframes taskHighlighter {
+	// 0% {
+	// 	background: $white;
+	// }
+	0% {
+		background: $highlight-color;
+	}
+	100% {
+		background: $white;
+	}
+}
+
+
+/*=====  End of CSS 3 Animations  ======*/

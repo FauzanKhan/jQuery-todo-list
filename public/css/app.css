@@ -197,7 +197,8 @@ body {
           font-size: 20px;
           font-weight: 400;
           vertical-align: middle;
-          color: #333; }
+          color: #333;
+          word-break: break-all; }
         .todo-list-wrapper #todo-list li .task-container .task-action-btn {
           display: table-cell;
           vertical-align: middle;
@@ -227,6 +228,9 @@ body {
               color: #FFF; }
         .todo-list-wrapper #todo-list li.completed .task-container .task-label {
           color: #CCC; }
+      .todo-list-wrapper #todo-list li.new .task-container {
+        -webkit-animation: taskHighlighter 2000ms linear 1;
+        animation: taskHighlighter 2000ms linear 1; }
   .todo-list-wrapper .todo-list-footer {
     position: relative; }
     .todo-list-wrapper .todo-list-footer .add-task-btn-wrapper {
@@ -278,7 +282,14 @@ body {
         -o-transitio: all 300ms ease;
         transition: all 300ms ease; }
         .todo-list-wrapper .todo-list-footer .new-task-wrapper textarea:focus {
-          outline: 1px solid #bfbfbf; }
+          border: 1px solid #bfbfbf;
+          outline: none; }
+        .todo-list-wrapper .todo-list-footer .new-task-wrapper textarea.error {
+          border: 1px solid #D93737;
+          outline: none; }
+      .todo-list-wrapper .todo-list-footer .new-task-wrapper .error-message {
+        color: #D93737;
+        font-style: italic; }
       .todo-list-wrapper .todo-list-footer .new-task-wrapper .btn {
         padding: 10px 15px;
         float: right;
@@ -289,6 +300,44 @@ body {
       .todo-list-wrapper .todo-list-footer .new-task-wrapper.visible {
         max-height: 300px;
         overflow: auto; }
+
+.notification-popup {
+  position: fixed;
+  top: 20px;
+  right: 10px;
+  width: 300px;
+  display: inline-block;
+  background: #1F8FEF;
+  border: 1px solid #1082e4;
+  color: #FFF;
+  padding: 20px;
+  opacity: .8;
+  border-radius: 2px;
+  box-sizing: border-box;
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -ms-transition: all 300ms ease;
+  -o-transitio: all 300ms ease;
+  transition: all 300ms ease; }
+  .notification-popup.success {
+    background: #35BA67;
+    border: 1px solid #2fa65c; }
+  .notification-popup p {
+    margin-top: 0;
+    margin-bottom: 0px; }
+  .notification-popup .task {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: inline-block; }
+  .notification-popup .notification-text {
+    font-size: 14px;
+    display: inline-block;
+    overflow: hidden; }
+  .notification-popup.hide {
+    opacity: 0;
+    visibility: hidden; }
 
 /*=====================================
 =            Media Queries            =
@@ -309,15 +358,15 @@ body {
       height: 20px; }
     .todo-list-wrapper #todo-list {
       border-bottom: none; }
-      .todo-list-wrapper #todo-list li::after {
+      .todo-list-wrapper #todo-list li.task::after {
         content: "";
         display: block;
         clear: both; }
-      .todo-list-wrapper #todo-list li.completed .task-container {
+      .todo-list-wrapper #todo-list li.task.completed .task-container {
         background: #FFF; }
-        .todo-list-wrapper #todo-list li.completed .task-container:hover {
+        .todo-list-wrapper #todo-list li.task.completed .task-container:hover {
           background: transparent; }
-      .todo-list-wrapper #todo-list li .task-container::after {
+      .todo-list-wrapper #todo-list li.task .task-container::after {
         content: ' ';
         -webkit-transform: translateY(-50%);
         -moz-transform: translateY(-50%);
@@ -326,34 +375,36 @@ body {
         transform: translateY(-50%);
         border-top: 8px solid transparent;
         border-bottom: 8px solid transparent; }
-      .todo-list-wrapper #todo-list li:nth-child(even) {
+      .todo-list-wrapper #todo-list li.task:nth-child(even) {
         border-right: 1px solid #CCC; }
-        .todo-list-wrapper #todo-list li:nth-child(even) .task-container {
+        .todo-list-wrapper #todo-list li.task:nth-child(even) .task-container {
           float: right;
           width: 50%;
           border: none;
           outline: 1px solid #CCC; }
-          .todo-list-wrapper #todo-list li:nth-child(even) .task-container::after {
+          .todo-list-wrapper #todo-list li.task:nth-child(even) .task-container::after {
             position: absolute;
             left: 0;
             right: auto;
             bottom: auto;
             top: 50%;
             border-left: 14px solid #CCC; }
-        .todo-list-wrapper #todo-list li:nth-child(even):last-child .task-container {
+        .todo-list-wrapper #todo-list li.task:nth-child(even):last-child .task-container {
           border-bottom: 1px solid #CCC; }
-      .todo-list-wrapper #todo-list li:nth-child(odd) .task-container {
+      .todo-list-wrapper #todo-list li.task:nth-child(odd) .task-container {
         float: left;
         width: 50%; }
-        .todo-list-wrapper #todo-list li:nth-child(odd) .task-container::after {
+        .todo-list-wrapper #todo-list li.task:nth-child(odd) .task-container::after {
           position: absolute;
           left: auto;
           right: 0;
           bottom: auto;
           top: 50%;
           border-right: 14px solid #CCC; }
-      .todo-list-wrapper #todo-list li .task-container {
-        border-bottom: 1px solid #CCC; } }
+      .todo-list-wrapper #todo-list li.task .task-container {
+        border-bottom: 1px solid #CCC; }
+  .notification-popup {
+    right: 30px; } }
 
 @media all and (min-width: 540px) {
   .todo-list-wrapper .todo-list-footer::after {
@@ -367,3 +418,19 @@ body {
     margin-top: 22px; } }
 
 /*=====  End of Media Queries  ======*/
+/*========================================
+=            CSS 3 Animations            =
+========================================*/
+@-webkit-keyframes taskHighlighter {
+  0% {
+    background: #FEEB99; }
+  100% {
+    background: #FFF; } }
+
+@keyframes taskHighlighter {
+  0% {
+    background: #FEEB99; }
+  100% {
+    background: #FFF; } }
+
+/*=====  End of CSS 3 Animations  ======*/

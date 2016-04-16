@@ -46,7 +46,7 @@
 				</div>
 				<div class="todo-list-body">
 					<ul id="todo-list">
-						<li>
+						<li class="task">
 							<div class="task-container">
 								<span class="task-label">Do Weekly Shopping</span>
 								<span class="task-action-btn">
@@ -59,7 +59,7 @@
 								</span>
 							</div>
 						</li>
-						<li>
+						<li class="task">
 							<div class="task-container">
 								<span class="task-label">Pick up the laundary</span>
 								<span class="task-action-btn">
@@ -72,7 +72,7 @@
 								</span>
 							</div>
 						</li>
-						<li class="completed">
+						<li class="completed task">
 							<div class="task-container">
 								<span class="task-label">Do the chicken dance</span>
 								<span class="task-action-btn">
@@ -85,7 +85,7 @@
 								</span>
 							</div>
 						</li>
-						<li>
+						<li class="task">
 							<div class="task-container">
 								<span class="task-label">Write a blog post </span>
 								<span class="task-action-btn">
@@ -98,7 +98,7 @@
 								</span>
 							</div>
 						</li>
-						<li>
+						<li class="task">
 							<div class="task-container">
 								<span class="task-label">Pay the bills</span>
 								<span class="task-action-btn">
@@ -122,12 +122,19 @@
 					</div>
 					<div class="new-task-wrapper">
 						<textarea  id="new-task" placeholder="Enter new task here. . ."></textarea>
+						<span class="error-message hidden">You need to enter a task first</span>
 						<span class="add-new-task-btn btn" id="add-task">Add Task</span>
 						<span class="cancel-btn btn" id="close-task-panel">Close</span>
 					</div>
 				</div>
 			</div>
 		</section>
+		<div class="notification-popup hide">
+			<p>
+				<span class="task"></span>
+				<span class="notification-text"></span>
+			</p>
+		</div>
 	</main>
 
 	<!-- Including jQuery from CDN -->
