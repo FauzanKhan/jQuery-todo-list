@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>To Do List | SharePop</title>
+	<!--  Meta tag for mobile devices-->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!--  Normalize.css for reducing cross browser issues -->
+	<link rel="stylesheet"  type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
+	<!-- Compiled Stylesheet -->
+	<link rel="stylesheet"  type="text/css" href="public/css/app.css">
+	<!-- Source Sans Pro Font -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,400italic,600,700,600italic"rel="stylesheet" type="text/css">
+	<!-- Google material icons for use of icons -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" sizes="32x32" href="http://cdn.sharepop.com/assets/live/favicons/favicon-32x32-a2b0b4b969aac585ea46cb0890ab98f7.png">
+</head>
+<body>
+	<header>
+		<figure>
+			<img class="brand-logo" src="http://cdn.sharepop.com/assets/live/logos/logo_sharepop-ba75cbe8b3bd1ce71678b70d3b8d07e8.svg" alt="SharePop">
+		</figure>
+	</header>
+	<main>
+		<section class="todo-list-wrapper">
+			<div class="todo-list-container">
+				<div class="mark-all-tasks">
+					<div class="mark-all-tasks-container">
+						<span class="mark-all-btn" role="button" id="mark-all-finished">
+							<span class="btn-label">Mark all as finished</span>
+							<span class="action-circle completed">
+								<i class="material-icons">check</i>
+							</span>
+						</span>
+						<span class="mark-all-btn move-down" role="button" id="mark-all-incomplete">
+							<span class="btn-label">Mark all as Incomplete</span>
+							<span class="action-circle">
+								<i class="material-icons">check</i>
+							</span>
+						</span>
+					</div>
+				</div>
+				<div class="todo-list-header">
+					<h3>Things I need to do . . .</h3>
+				</div>
+				<div class="todo-list-body">
+					<ul id="todo-list">
+						<li>
+							<div class="task-container">
+								<span class="task-label">Do Weekly Shopping</span>
+								<span class="task-action-btn">
+									<span class="action-circle large delete-btn" title="Delete Task">
+										<i class="material-icons">delete</i>
+									</span>
+									<span class="action-circle large complete-btn" title="Mark Complete">
+										<i class="material-icons">check</i>
+									</span>
+								</span>
+							</div>
+						</li>
+						<li>
+							<div class="task-container">
+								<span class="task-label">Pick up the laundary</span>
+								<span class="task-action-btn">
+									<span class="action-circle large delete-btn" title="Delete Task">
+										<i class="material-icons">delete</i>
+									</span>
+									<span class="action-circle large complete-btn" title="Mark Complete">
+										<i class="material-icons">check</i>
+									</span>
+								</span>
+							</div>
+						</li>
+						<li class="completed">
+							<div class="task-container">
+								<span class="task-label">Do the chicken dance</span>
+								<span class="task-action-btn">
+									<span class="action-circle large delete-btn" title="Delete Task">
+										<i class="material-icons">delete</i>
+									</span>
+									<span class="action-circle large complete-btn" title="Mark Incomplete">
+										<i class="material-icons">check</i>
+									</span>
+								</span>
+							</div>
+						</li>
+						<li>
+							<div class="task-container">
+								<span class="task-label">Write a blog post </span>
+								<span class="task-action-btn">
+									<span class="action-circle large delete-btn" title="Delete Task">
+										<i class="material-icons">delete</i>
+									</span>
+									<span class="action-circle large complete-btn" title="Mark Complete">
+										<i class="material-icons">check</i>
+									</span>
+								</span>
+							</div>
+						</li>
+						<li>
+							<div class="task-container">
+								<span class="task-label">Pay the bills</span>
+								<span class="task-action-btn">
+									<span class="action-circle large delete-btn" title="Delete Task">
+										<i class="material-icons">delete</i>
+									</span>
+									<span class="action-circle large complete-btn" title="Mark Complete">
+										<i class="material-icons">check</i>
+									</span>
+								</span>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="todo-list-footer">
+					<h3>Things I should do next . . . </h3>
+					<div class="add-task-btn-wrapper">
+						<span class="add-task-btn">
+							<i class="material-icons">add</i>
+						</span>
+					</div>
+					<div class="new-task-wrapper">
+						<textarea  id="new-task" placeholder="Enter new task here. . ."></textarea>
+						<span class="add-new-task-btn btn" id="add-task">Add Task</span>
+						<span class="cancel-btn btn" id="close-task-panel">Close</span>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<!-- Including jQuery from CDN -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+	<!-- Including main JS file -->
+	<script type="text/javascript" src="src/javascript/app.js"></script>
+</body>
+</html>

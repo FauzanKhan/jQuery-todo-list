@@ -1,0 +1,45 @@
+/*==============================
+=            Colors            =
+==============================*/
+
+// Backgrounds
+$white: #FFF;
+$transparent: transparent;
+$base-bg: #FAFAFA;//#F4F4F4;
+$secondary-bg: #EBEEEF;//#FAFAFA;
+$light-gray-bg: #F9F9F9;
+
+// Foregrounds
+$base-fg: #333;
+$light-fg: #666;
+$purpule-fg: #9B1BCC;
+$light-gray-fg: #CCC;
+
+//Helper Colors
+$success-color: #35BA67;
+$danger-color: #D93737;
+$info-color: blue;
+$border-color: #CCC;//#DADADA;
+
+//Scrollbar for webkit browsers
+$scroll-bar-thumb-color: rgba(0, 0, 0, 0.2);
+$scroll-bar--inactive-thumb-color: rgba(0, 0, 0, 0.1);
+
+/*=====  End of Colors  ======*/
+
+
+
+/*==================================
+=            Typography            =
+==================================*/
+
+//Fonts
+$primary-font: 'Source Sans Pro', tahoma;
+
+//Font Weights
+$font-light: 300;
+$font-normal: 400;
+$font-semi-bold: 600;
+$font-bold: 700;
+
+/*=====  End of Typography  ======*/

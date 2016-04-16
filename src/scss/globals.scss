@@ -1,0 +1,127 @@
+/*=====================================
+=            Global Styles            =
+=====================================*/
+
+body{
+	background: $base-bg;
+	color: $base-fg;
+	font-family: $primary-font;
+	header{
+		text-align: center;
+		img.brand-logo{
+			height: 60px;
+			padding :20px 0;
+		}
+	}
+}
+
+.action-circle{
+	background: $transparent;
+	border: 1px solid $border-color;
+	border-radius: 100%;
+	height: 20px;
+	width: 20px;
+	display: inline-block;
+	text-align: center;
+	cursor: pointer;
+	@include transition;
+	.material-icons{
+		color: $border-color;
+		font-size: 18px;
+		vertical-align: -3px;
+	}
+	&.completed{
+		@include completedCheckBox;
+	}
+	&.large{
+		height: 30px;
+		width: 30px;
+		.material-icons{
+			font-size: 22px;
+			vertical-align: -10px;
+		}
+	}
+} 
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+
+/* Track */
+::-webkit-scrollbar-track {
+    border-top: 0;
+    border-bottom: 0;
+    border: 0;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+}
+
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    background: $scroll-bar-thumb-color;
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+    background: $scroll-bar--inactive-thumb-color;
+}
+
+
+
+/*=====  End of Global Styles  ======*/
+
+
+/*======================================
+=            Helper Classes            =
+======================================*/
+
+.clearfix:after {
+	@include clearfix;
+}
+
+.float-left{
+	float: left;	
+}
+
+.float-right{
+	float: right;
+}
+
+.text-left{
+	text-align: left;
+}
+
+.text-center{
+	text-align: center;
+}
+
+.text-right{
+	text-align: right;
+} 
+
+.hidden{
+	display: none !important;
+}
+
+/*=====  End of Helper Classes  ======*/
+
+/*=====================================
+=            Media Queries            =
+=====================================*/
+
+/* Following Mobile First approach */
+@media all and (min-width: 1024px){
+	body header{
+		img.brand-logo{
+			height: 90px;
+		}
+	}
+}
+
+/*=====  End of Media Queries  ======*/
+

@@ -1,0 +1,369 @@
+/* Not Using any CSS Framework */
+/* Using SASS as CSS pre-processor */
+/*==============================
+=            Colors            =
+==============================*/
+/*=====  End of Colors  ======*/
+/*==================================
+=            Typography            =
+==================================*/
+/*=====  End of Typography  ======*/
+/*=====================================
+=            Global Styles            =
+=====================================*/
+body {
+  background: #FAFAFA;
+  color: #333;
+  font-family: "Source Sans Pro", tahoma; }
+  body header {
+    text-align: center; }
+    body header img.brand-logo {
+      height: 60px;
+      padding: 20px 0; }
+
+.action-circle {
+  background: transparent;
+  border: 1px solid #CCC;
+  border-radius: 100%;
+  height: 20px;
+  width: 20px;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -ms-transition: all 300ms ease;
+  -o-transitio: all 300ms ease;
+  transition: all 300ms ease; }
+  .action-circle .material-icons {
+    color: #CCC;
+    font-size: 18px;
+    vertical-align: -3px; }
+  .action-circle.completed {
+    background: #35BA67;
+    border: 1px solid #2fa65c; }
+    .action-circle.completed .material-icons {
+      color: #FFF; }
+  .action-circle.large {
+    height: 30px;
+    width: 30px; }
+    .action-circle.large .material-icons {
+      font-size: 22px;
+      vertical-align: -10px; }
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px; }
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-top: 0;
+  border-bottom: 0;
+  border: 0;
+  -webkit-border-radius: 0px;
+  border-radius: 0px; }
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  background: rgba(0, 0, 0, 0.2); }
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(0, 0, 0, 0.1); }
+
+/*=====  End of Global Styles  ======*/
+/*======================================
+=            Helper Classes            =
+======================================*/
+.clearfix:after::after {
+  content: "";
+  display: block;
+  clear: both; }
+
+.float-left {
+  float: left; }
+
+.float-right {
+  float: right; }
+
+.text-left {
+  text-align: left; }
+
+.text-center {
+  text-align: center; }
+
+.text-right {
+  text-align: right; }
+
+.hidden {
+  display: none !important; }
+
+/*=====  End of Helper Classes  ======*/
+/*=====================================
+=            Media Queries            =
+=====================================*/
+/* Following Mobile First approach */
+@media all and (min-width: 1024px) {
+  body header img.brand-logo {
+    height: 90px; } }
+
+/*=====  End of Media Queries  ======*/
+/* Following Mobile First approach */
+.todo-list-wrapper {
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box; }
+  .todo-list-wrapper .todo-list-container {
+    border: 1px solid #CCC;
+    padding: 20px;
+    margin: 20px;
+    background: #EBEEEF;
+    box-shadow: 0px 5px 5px #CCC; }
+  .todo-list-wrapper .mark-all-tasks {
+    text-align: right;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #CCC; }
+    .todo-list-wrapper .mark-all-tasks .mark-all-tasks-container {
+      overflow: hidden;
+      position: relative; }
+    .todo-list-wrapper .mark-all-tasks .mark-all-btn {
+      cursor: pointer;
+      display: block;
+      -webkit-transition: all 200ms ease;
+      -moz-transition: all 200ms ease;
+      -ms-transition: all 200ms ease;
+      -o-transitio: all 200ms ease;
+      transition: all 200ms ease; }
+      .todo-list-wrapper .mark-all-tasks .mark-all-btn#mark-all-finished {
+        color: #35BA67; }
+      .todo-list-wrapper .mark-all-tasks .mark-all-btn#mark-all-incomplete {
+        color: #666; }
+        .todo-list-wrapper .mark-all-tasks .mark-all-btn#mark-all-incomplete .action-circle {
+          border: 1px solid #666; }
+          .todo-list-wrapper .mark-all-tasks .mark-all-btn#mark-all-incomplete .action-circle .material-icons {
+            color: #666; }
+      .todo-list-wrapper .mark-all-tasks .mark-all-btn.move-up {
+        -webkit-transform: translateY(-30px);
+        -moz-transform: translateY(-30px);
+        -ms-transform: translateY(-30px);
+        -o-transform: translateY(-30px);
+        transform: translateY(-30px);
+        position: absolute;
+        right: 0; }
+      .todo-list-wrapper .mark-all-tasks .mark-all-btn.move-down {
+        -webkit-transform: translateY(30px);
+        -moz-transform: translateY(30px);
+        -ms-transform: translateY(30px);
+        -o-transform: translateY(30px);
+        transform: translateY(30px);
+        position: absolute;
+        right: 0; }
+    .todo-list-wrapper .mark-all-tasks .btn-label {
+      margin-right: 5px;
+      font-weight: 600; }
+  .todo-list-wrapper .todo-list-header h3, .todo-list-wrapper .todo-list-footer h3 {
+    font-size: 24px;
+    font-weight: 400;
+    color: #666; }
+  .todo-list-wrapper .todo-list-body {
+    max-height: 500px;
+    overflow: auto; }
+  .todo-list-wrapper #todo-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #CCC; }
+    .todo-list-wrapper #todo-list li {
+      margin: 0;
+      padding: 0; }
+      .todo-list-wrapper #todo-list li .task-container {
+        display: table;
+        background: #FFF;
+        padding: 8px 20px;
+        width: 100%;
+        border: 1px solid #CCC;
+        border-bottom: none;
+        box-sizing: border-box;
+        position: relative;
+        -webkit-transition: background 200ms ease;
+        -moz-transition: background 200ms ease;
+        -ms-transition: background 200ms ease;
+        -o-transitio: background 200ms ease;
+        transition: background 200ms ease; }
+        .todo-list-wrapper #todo-list li .task-container .task-label {
+          display: table-cell;
+          font-size: 20px;
+          font-weight: 400;
+          vertical-align: middle;
+          color: #333; }
+        .todo-list-wrapper #todo-list li .task-container .task-action-btn {
+          display: table-cell;
+          vertical-align: middle;
+          text-align: right; }
+          .todo-list-wrapper #todo-list li .task-container .task-action-btn .action-circle {
+            margin-left: 5px;
+            margin-top: 2px;
+            margin-bottom: 2px; }
+            .todo-list-wrapper #todo-list li .task-container .task-action-btn .action-circle:hover {
+              border: 1px solid #8c8c8c;
+              background: #FFF; }
+              .todo-list-wrapper #todo-list li .task-container .task-action-btn .action-circle:hover .material-icons {
+                color: #8c8c8c; }
+        .todo-list-wrapper #todo-list li .task-container:hover {
+          background: #EBEEEF; }
+      .todo-list-wrapper #todo-list li.completed .task-container {
+        background: #F9F9F9; }
+        .todo-list-wrapper #todo-list li.completed .task-container .complete-btn {
+          background: #35BA67;
+          border: 1px solid #2fa65c; }
+          .todo-list-wrapper #todo-list li.completed .task-container .complete-btn .material-icons {
+            color: #FFF; }
+          .todo-list-wrapper #todo-list li.completed .task-container .complete-btn:hover {
+            background: #35BA67;
+            border: 1px solid #2fa65c; }
+            .todo-list-wrapper #todo-list li.completed .task-container .complete-btn:hover .material-icons {
+              color: #FFF; }
+        .todo-list-wrapper #todo-list li.completed .task-container .task-label {
+          color: #CCC; }
+  .todo-list-wrapper .todo-list-footer {
+    position: relative; }
+    .todo-list-wrapper .todo-list-footer .add-task-btn-wrapper {
+      text-align: center; }
+    .todo-list-wrapper .todo-list-footer .add-task-btn {
+      cursor: pointer;
+      border: 2px solid #9B1BCC;
+      display: inline-block;
+      height: 35px;
+      width: 35px;
+      border-radius: 10px;
+      -webkit-transition: all 300ms ease;
+      -moz-transition: all 300ms ease;
+      -ms-transition: all 300ms ease;
+      -o-transitio: all 300ms ease;
+      transition: all 300ms ease; }
+      .todo-list-wrapper .todo-list-footer .add-task-btn.hide {
+        opacity: 0;
+        visibility: hidden; }
+      .todo-list-wrapper .todo-list-footer .add-task-btn:hover {
+        background: #9B1BCC; }
+        .todo-list-wrapper .todo-list-footer .add-task-btn:hover .material-icons {
+          color: #EBEEEF; }
+      .todo-list-wrapper .todo-list-footer .add-task-btn .material-icons {
+        color: #9B1BCC;
+        font-size: 34px; }
+    .todo-list-wrapper .todo-list-footer .new-task-wrapper {
+      -webkit-transition: all 300ms ease;
+      -moz-transition: all 300ms ease;
+      -ms-transition: all 300ms ease;
+      -o-transitio: all 300ms ease;
+      transition: all 300ms ease;
+      max-height: 0;
+      overflow: hidden; }
+      .todo-list-wrapper .todo-list-footer .new-task-wrapper::after {
+        content: "";
+        display: block;
+        clear: both; }
+      .todo-list-wrapper .todo-list-footer .new-task-wrapper textarea {
+        box-sizing: border-box;
+        width: 100%;
+        border: 1px solid #CCC;
+        height: 90px;
+        padding: 10px 15px;
+        margin-bottom: 20px;
+        -webkit-transition: all 300ms ease;
+        -moz-transition: all 300ms ease;
+        -ms-transition: all 300ms ease;
+        -o-transitio: all 300ms ease;
+        transition: all 300ms ease; }
+        .todo-list-wrapper .todo-list-footer .new-task-wrapper textarea:focus {
+          outline: 1px solid #bfbfbf; }
+      .todo-list-wrapper .todo-list-footer .new-task-wrapper .btn {
+        padding: 10px 15px;
+        float: right;
+        cursor: pointer; }
+      .todo-list-wrapper .todo-list-footer .new-task-wrapper .add-new-task-btn {
+        background: #FFF;
+        border: 1px solid #CCC; }
+      .todo-list-wrapper .todo-list-footer .new-task-wrapper.visible {
+        max-height: 300px;
+        overflow: auto; }
+
+/*=====================================
+=            Media Queries            =
+=====================================*/
+@media all and (min-width: 980px) {
+  .todo-list-wrapper {
+    width: 100%;
+    max-width: 1840px; }
+    .todo-list-wrapper .todo-list-container {
+      margin: 20px 50px;
+      padding: 20px 40px; }
+    .todo-list-wrapper .todo-list-footer .add-task-btn-wrapper {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0px;
+      height: 20px; }
+    .todo-list-wrapper #todo-list {
+      border-bottom: none; }
+      .todo-list-wrapper #todo-list li::after {
+        content: "";
+        display: block;
+        clear: both; }
+      .todo-list-wrapper #todo-list li.completed .task-container {
+        background: #FFF; }
+        .todo-list-wrapper #todo-list li.completed .task-container:hover {
+          background: transparent; }
+      .todo-list-wrapper #todo-list li .task-container::after {
+        content: ' ';
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent; }
+      .todo-list-wrapper #todo-list li:nth-child(even) {
+        border-right: 1px solid #CCC; }
+        .todo-list-wrapper #todo-list li:nth-child(even) .task-container {
+          float: right;
+          width: 50%;
+          border: none;
+          outline: 1px solid #CCC; }
+          .todo-list-wrapper #todo-list li:nth-child(even) .task-container::after {
+            position: absolute;
+            left: 0;
+            right: auto;
+            bottom: auto;
+            top: 50%;
+            border-left: 14px solid #CCC; }
+        .todo-list-wrapper #todo-list li:nth-child(even):last-child .task-container {
+          border-bottom: 1px solid #CCC; }
+      .todo-list-wrapper #todo-list li:nth-child(odd) .task-container {
+        float: left;
+        width: 50%; }
+        .todo-list-wrapper #todo-list li:nth-child(odd) .task-container::after {
+          position: absolute;
+          left: auto;
+          right: 0;
+          bottom: auto;
+          top: 50%;
+          border-right: 14px solid #CCC; }
+      .todo-list-wrapper #todo-list li .task-container {
+        border-bottom: 1px solid #CCC; } }
+
+@media all and (min-width: 540px) {
+  .todo-list-wrapper .todo-list-footer::after {
+    content: "";
+    display: block;
+    clear: both; }
+  .todo-list-wrapper .todo-list-footer h3 {
+    display: inline-block; }
+  .todo-list-wrapper .todo-list-footer .add-task-btn-wrapper {
+    float: right;
+    margin-top: 22px; } }
+
+/*=====  End of Media Queries  ======*/

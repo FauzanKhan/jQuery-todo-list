@@ -1,0 +1,39 @@
+@mixin completedCheckBox{
+	background: $success-color;
+	border: 1px solid darken($success-color, 5%);
+	.material-icons{
+		color: $white;
+	}
+}
+
+@mixin transition($properties: all, $timing: 300ms, $easing: ease){
+	-webkit-transition: $properties $timing $easing;
+	-moz-transition: $properties $timing $easing;
+	-ms-transition: $properties $timing $easing;
+	-o-transitio: $properties $timing $easing;
+	transition: $properties $timing $easing;
+}
+
+@mixin transform($transformation){
+	-webkit-transform:$transformation;
+	-moz-transform: $transformation;
+	-ms-transform: $transformation;
+	-o-transform: $transformation;
+	transform: $transformation;
+}
+
+@mixin clearfix{
+	&::after {
+		content:"";
+		display:block;
+		clear:both;
+	}
+}
+
+@mixin absolute($top: auto, $left: auto, $right: auto, $bottom: auto){
+	position: absolute;
+	left: $left;
+	right: $right;
+	bottom: $bottom;
+	top: $top;
+}

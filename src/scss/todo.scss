@@ -1,0 +1,280 @@
+/* Following Mobile First approach */
+
+.todo-list-wrapper{
+	width: 100%;
+	margin: 0 auto;
+	box-sizing: border-box;
+	.todo-list-container{
+		border: 1px solid $border-color;
+		padding: 20px;
+		margin: 20px;
+		background: $secondary-bg;
+		box-shadow: 0px 5px 5px $border-color;
+	}
+	.mark-all-tasks{
+		text-align: right;
+		padding-bottom: 15px;
+		border-bottom: 1px solid $border-color;
+		.mark-all-tasks-container{
+			overflow: hidden;
+			position: relative;
+		}
+		.mark-all-btn{
+			cursor: pointer;
+			display: block;
+			@include transition($timing: 200ms);
+			&#mark-all-finished{
+				color: $success-color;
+			}
+			&#mark-all-incomplete{
+				color: $light-fg;
+				.action-circle{
+					border: 1px solid $light-fg;
+					.material-icons{
+						color: $light-fg;
+					}
+				}
+			}
+			&.move-up{
+				@include transform(translateY(-30px));
+				position: absolute;
+				right: 0;
+			}
+			&.move-down{
+				@include transform(translateY(30px));
+				position: absolute;
+				right: 0;
+			}
+		}
+		.btn-label{
+			margin-right: 5px;
+			font-weight: $font-semi-bold;
+		}
+	}
+	.todo-list-header, .todo-list-footer{
+		h3{
+			font-size: 24px;
+			font-weight: 400;
+			color: $light-fg;
+		}
+	}
+	.todo-list-body{
+		max-height: 500px;
+		overflow: auto;
+	}
+	#todo-list{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		border-bottom: 1px solid $border-color;
+		li{
+			margin: 0;
+			padding: 0;
+			.task-container{
+				display: table;
+				background: $white;
+				padding:  8px 20px;
+				width: 100%;
+				border: 1px solid $border-color;
+				border-bottom: none;
+				box-sizing: border-box;
+				position: relative;
+				@include transition($properties: background, $timing: 200ms);
+				.task-label{
+					display: table-cell;
+					font-size: 20px;
+					font-weight: $font-normal;
+					vertical-align: middle;
+					color: $base-fg;
+				}
+				.task-action-btn{
+					display: table-cell;
+					vertical-align: middle;
+					text-align: right;
+					.action-circle{
+						margin-left: 5px;
+						margin-top: 2px;
+						margin-bottom: 2px;
+						&:hover{
+							border: 1px solid darken($border-color, 25%);
+							background: $white;
+							.material-icons{
+								color: darken($border-color, 25%);
+							}
+						}
+					}
+				}
+				&:hover{
+					background: $secondary-bg;
+				}
+			}
+			&.completed{
+				.task-container{
+					background: $light-gray-bg;
+					.complete-btn{
+						@include completedCheckBox;
+						&:hover{
+							@include completedCheckBox;
+						}
+					}
+					.task-label{
+						color: $light-gray-fg;
+					}		
+				}	
+			}
+		}
+	}
+	.todo-list-footer{
+		position: relative;
+		.add-task-btn-wrapper{
+			text-align: center;
+		}
+		.add-task-btn{
+			cursor: pointer;
+			border: 2px solid $purpule-fg;
+			display: inline-block;
+			height: 35px;
+			width: 35px;
+			border-radius: 10px;
+			@include transition;
+			&.hide{
+				opacity: 0;
+				visibility: hidden;
+			}
+			&:hover{
+				background: $purpule-fg;
+				.material-icons{
+					color: $secondary-bg;
+				}
+			}
+			.material-icons{
+				color:  $purpule-fg;
+				font-size: 34px;
+			}
+		}
+		.new-task-wrapper{
+			@include clearfix;
+			@include transition;
+			max-height: 0;
+			overflow: hidden;
+			textarea{
+				box-sizing: border-box;
+				width: 100%;
+				border: 1px solid $border-color;
+				height: 90px;
+				padding: 10px 15px;
+				margin-bottom: 20px;
+				@include transition;
+				&:focus{
+					outline: 1px solid darken($border-color, 5%);
+				}
+			}
+			.btn{
+				padding: 10px 15px;
+				float: right;
+				cursor: pointer;
+			}
+			.add-new-task-btn{
+				background: $white;
+				border: 1px solid $border-color;
+			}
+			&.visible{
+				max-height: 300px;
+				overflow: auto;
+			}
+		}
+	}
+}
+
+/*=====================================
+=            Media Queries            =
+=====================================*/
+
+@media all and (min-width: 980px){
+	.todo-list-wrapper{
+		width:100%;
+		max-width: 1840px;
+		.todo-list-container{
+			margin: 20px 50px;
+			padding: 20px 40px;
+		}		
+		.todo-list-footer{
+			.add-task-btn-wrapper{
+				@include absolute($top: 0px, $left: 0, $right: 0, $bottom:  0);
+				height: 20px;
+			}
+		}
+		#todo-list{
+			border-bottom: none;
+			li{
+				@include clearfix;
+				&.completed{
+					.task-container{
+						background: $white;
+						&:hover{
+							background: $transparent;
+						}
+					}
+				}
+				.task-container{
+					&::after{
+						content: ' ';
+						@include transform($transformation: translateY(-50%));
+						border-top: 8px solid transparent;
+						border-bottom: 8px solid transparent;
+					}
+				}
+				&:nth-child(even){
+					// margin-left: 50%;
+					border-right: 1px solid $border-color;
+					.task-container{
+						float: right;
+						width: 50%;
+						border: none;
+						outline: 1px solid $border-color;
+						&::after{
+							@include absolute($top:50%, $left: 0);
+							border-left: 14px solid $border-color;
+						}
+					}
+					&:last-child{
+						.task-container{
+							border-bottom: 1px solid $border-color;
+						}
+					}
+				}
+				&:nth-child(odd){
+					// margin-right:  50%;
+					.task-container{
+						float: left;
+						width: 50%;
+						&::after{
+							@include absolute($top:50%, $right: 0);
+							border-right: 14px solid $border-color;
+						}
+					}
+				}
+				.task-container{
+					border-bottom: 1px solid $border-color;
+				}
+			}
+		}
+	}
+}
+
+@media all and (min-width: 540px){
+	.todo-list-wrapper{
+		.todo-list-footer{
+			@include clearfix;
+			h3{
+				display: inline-block;
+			}
+			.add-task-btn-wrapper{
+				float: right;
+				margin-top: 22px;
+			}
+		}
+	}
+}
+
+/*=====  End of Media Queries  ======*/
