@@ -20,6 +20,28 @@ body {
     body header img.brand-logo {
       height: 60px;
       padding: 20px 0; }
+  body footer {
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px; }
+    body footer img {
+      width: 20px;
+      vertical-align: -4px;
+      margin-right: 2px; }
+    body footer a {
+      color: #333;
+      border-radius: 2px;
+      text-decoration: none;
+      padding: 15px 20px;
+      background: #FFF;
+      border: 1px solid #CCC;
+      -webkit-transition: all 300ms ease;
+      -moz-transition: all 300ms ease;
+      -ms-transition: all 300ms ease;
+      -o-transitio: all 300ms ease;
+      transition: all 300ms ease; }
+      body footer a:hover {
+        background: transparent; }
 
 .action-circle {
   background: transparent;
@@ -130,7 +152,7 @@ body {
       position: relative; }
     .todo-list-wrapper .mark-all-tasks .mark-all-btn {
       cursor: pointer;
-      display: block;
+      display: inline-block;
       -webkit-transition: all 200ms ease;
       -moz-transition: all 200ms ease;
       -ms-transition: all 200ms ease;

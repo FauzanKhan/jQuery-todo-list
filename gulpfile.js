@@ -8,12 +8,12 @@ var rename = require("gulp-rename");
 var path = {
 	src : {
 		scss: 'src/scss/app.scss',
-		js: 'src/js/app.js'
+		js: 'src/javascript/app.js'
 	},
 	allScss: 'src/scss/*.scss',
 	dest: {
 		css: 'public/css',
-		js: 'public/js'
+		js: 'public/javascript/'
 	}
 }
 
@@ -32,7 +32,7 @@ gulp.task('minify-js', function(){
 		.pipe(rename({'suffix': '.min'}))
 		.pipe(gulp.dest(path.dest.js))
 		.pipe(notify({
-	      message: "Generated <%= file.relative %>",
+	      message: "Generated <%= file.relative %> in ",
 	    }));
 });
 

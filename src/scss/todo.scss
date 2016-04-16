@@ -21,7 +21,7 @@
 		}
 		.mark-all-btn{
 			cursor: pointer;
-			display: block;
+			display: inline-block;
 			@include transition($timing: 200ms);
 			&#mark-all-finished{
 				color: $success-color;
