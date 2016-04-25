@@ -12,6 +12,10 @@ body{
 			height: 60px;
 			padding :20px 0;
 		}
+		.material-icons{
+			font-size: 105px;
+			color: $light-fg;
+		}
 	}
 	footer{
 		text-align: center;
@@ -63,7 +67,7 @@ body{
 			vertical-align: -10px;
 		}
 	}
-} 
+}
 
 /* Scrollbar */
 ::-webkit-scrollbar {
@@ -107,7 +111,7 @@ body{
 }
 
 .float-left{
-	float: left;	
+	float: left;
 }
 
 .float-right{
@@ -124,7 +128,7 @@ body{
 
 .text-right{
 	text-align: right;
-} 
+}
 
 .hidden{
 	display: none !important;

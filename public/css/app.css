@@ -20,6 +20,9 @@ body {
     body header img.brand-logo {
       height: 60px;
       padding: 20px 0; }
+    body header .material-icons {
+      font-size: 105px;
+      color: #666; }
   body footer {
     text-align: center;
     padding-top: 40px;
